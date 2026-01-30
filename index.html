@@ -1,30 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>AR.js Amazing Race</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!-- A-Frame -->
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
 
-    <!-- AR.js -->
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+    <title>HTML + CSS</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-
-  <body style="margin: 0; overflow: hidden;">
-    <a-scene
-      embedded
-      arjs="sourceType: webcam; debugUIEnabled: false;"
+  <body>
+    <model-viewer
+      src="models/future_car.glb"
+      style="width;100vw; height:90vh;"
+      camera-controls
+      touch-action="pan-y"
+      ar
     >
-
-      <!-- Marker -->
-      <a-marker preset="hiro">
-        <!-- 3D object -->
-        <a-box position="0 0.5 0" color="red"></a-box>
-      </a-marker>
-
-      <!-- Camera -->
-      <a-entity camera></a-entity>
-    </a-scene>
+      <button id= "ar-button" slot="ar-button">Start AR</button>
+    </model-viewer>
   </body>
+
+  <style>
+    #ar-button {
+      width: 120px;
+      height: 60px;
+      position: absolute;
+      right: 35px;
+      bottom: 35px;
+      background-color:aqua;
+      color:white;
+      border: none;
+      font-size: 20px;
+
+    }
 </html>
